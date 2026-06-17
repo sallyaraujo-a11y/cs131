@@ -1,0 +1,5 @@
+A1: ls -l > listing.txt ; date >> listing.txt
+A2: ls /nonexistent_dir 2> errors.txt
+A3: ls /nonexistent_dir /etc > output.txt 2> errors.txt
+
+A4: ls /nonexistent_dir /etc &> combined.txt
