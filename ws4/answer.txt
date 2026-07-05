@@ -1,0 +1,45 @@
+T1
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L216
+
+edit()
+
+This function opens a file using the best text editor available on the system. It first checks if jpico exists. If jpico exists, it opens the file with jpico. If not, it checks for nano, then pico. If none of those editors are found, it uses vim. The "$@" passes the file name or arguments into the editor command.
+
+
+https://gist.github.com/zachbrowne/8bc414c9f30192067831fafebd14255c#file-the-ultimate-bad-ass-bashrc-file-L244
+
+extract()
+
+This function extracts compressed files. It loops through each file given to the function. First, it checks if the file exists. Then it uses a case statement to match the file extension, such as .tar.gz, .zip, .bz2, or .7z. Based on the extension, it runs the correct command, such as tar, unzip, bunzip2, gunzip, or 7z. If the file type is unknown, it prints a message saying it does not know how to extract it.
+
+
+T2
+
+https://github.com/sallyaraujo-a11y/cs131/blob/9ae97149ae3eb1142fe64dfeec8d8c5e693fdb7c/ws4/.bashrc#L4
+
+alias cs131='cd ~/cs131'
+
+This alias lets me type cs131 instead of cd ~/cs131. It is useful because it quickly takes me to my cs131 repository without typing the full path every time.
+
+
+https://github.com/sallyaraujo-a11y/cs131/blob/9ae97149ae3eb1142fe64dfeec8d8c5e693fdb7c/ws4/.bashrc#L5
+
+alias gl='git log --oneline'
+
+This alias lets me type gl instead of git log --oneline. It is useful because it shows my Git commit history in a shorter and easier-to-read format.
+
+
+https://github.com/sallyaraujo-a11y/cs131/blob/9ae97149ae3eb1142fe64dfeec8d8c5e693fdb7c/ws4/.bashrc#L7-L9
+
+if [ -d "$HOME/cs131/ws4" ]; then
+
+This if-statement checks whether my ws4 folder exists. If it does, it creates the ws4 alias that takes me directly to my worksheet 4 folder.
+
+
+https://github.com/sallyaraujo-a11y/cs131/blob/9ae97149ae3eb1142fe64dfeec8d8c5e693fdb7c/ws4/.bashrc#L11-L17
+
+mkcd()
+
+This shell function creates a new directory and then moves into it. It first checks if the user typed a folder name. If no folder name is given, it prints a usage message and stops. If a folder name is given, it runs mkdir -p to create the folder and then cd to enter it.
+
