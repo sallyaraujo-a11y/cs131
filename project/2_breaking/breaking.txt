@@ -1,0 +1,42 @@
+Phase 2 - Breaking Point
+
+Excel Experiment:
+- We attempted to open the complete 2022_Yellow_Taxi_Trip_Data_20260716.csv file directly in Excel.
+- Excel did not display an error message, but the file never opened and o worksheet containing the data appeared. 
+  The application was unresponsive so we stopped the attempt.
+
+Pandas Experiment:
+-We used pandas.read_csv()to load the complete 2022 and 2023 csv files, then we attempted to combine them by using
+ pandas.concat()
+-The process did not fully finish. It was terminated abnirmally before the combined number of rows was printed.
+-Wall-clock time: 345.97 seconds
+
+Command line Aggregation:
+-Average tip amount across 2022 and 2023 dataset
+
+ a)Command line:
+ time awk -F',' '
+FNR > 1 {
+    gsub(/"/, "", $14)
+
+    if ($14 ~ /^-?[0-9]+([.][0-9]+)?$/) {
+        total += $14
+        count++
+    }
+}
+END {
+    print "Valid rows:", count
+    printf "Total tips: $%.2f\n", total
+    printf "Average tip: $%.2f\n", total / count
+}
+' *2022*.csv *2023*.csv
+
+ Results:
+ Valid rows: 67938538 
+ Total tips: $214553893.38 
+ Average tip: $3.16 
+ real 3m52.410s 
+ user 3m48.226s 
+ sys 0m4.165s
+ 
+ 
